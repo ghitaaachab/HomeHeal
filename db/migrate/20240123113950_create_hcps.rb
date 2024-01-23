@@ -7,7 +7,6 @@ class CreateHcps < ActiveRecord::Migration[7.1]
       t.integer :age
       t.boolean :availability
       t.integer :price
-      t.string :background_image
       t.timestamps
     end
   end

@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  belongs_to :hcp
-  belongs_to :client
+  has_one :hcp
+  has_one :client
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
