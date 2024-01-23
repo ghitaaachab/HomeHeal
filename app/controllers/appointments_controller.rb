@@ -1,9 +1,10 @@
 class AppointmentsController < ApplicationController
 
   def index
-    # this is the condition below where go to use, but for the sake of testing we will import all appointments for the moment
+    # this is the condition below we're going to use, but for the sake of testing we will import all appointments at the moment
     # @appointments = Appointement.where(client_id: current_user.id)
     @appointments = Appointement.all
+
   end
 
   def create
