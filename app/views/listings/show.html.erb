@@ -1,9 +1,33 @@
-<h1><%= @hcp.name %></h1>
-<p>short bio</p>
-<h2><%= @hcp.speciality%></h2>
-<p><%= @hcp.rating %></p>
-<p><%= @hcp.experience %></p>
-<p><%= @hcp.age %></p>
-<p><%= @hcp.phone_number %></p>
-<p><%= @hcp.availability %></p>
-<p><%= @hcp.price %></p>
+
+
+<p><%= @listing.age %></p>
+<p><%= @listing.availability %></p>
+<p><%= @listing.price %></p>
+<!-- app/views/hcp/show.html.erb -->
+<h1><%= @listing.user.first_name %>'s Profile</h1>
+
+<p>City: <%= @listing.city %></p>
+<p>Specialty: <%= @listing.specialty %></p>
+<p>Experience: <%= @listing.experience %> years</p>
+
+<h2>Available Appointments</h2>
+<% if @appointments.any? %>
+  <ul>
+    <% @appointments.each do |appointment| %>
+      <li><%= appointment.date %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No appointments available.</p>
+<% end %>
+
+<h2>Book Appointment</h2>
+<%= form_tag(book_appointment_hcp_path(@listing), method: :post) do %>
+  <%= hidden_field_tag :user_id, current_user.id %>
+  <%= hidden_field_tag :hcp_id, @listing.id %>
+
+  <label for="selected_date">Select Date:</label>
+  <%= date_field_tag :selected_date, nil, min: Date.today %>
+
+  <%= submit_tag 'Book Appointment' %>
+<% end %>
