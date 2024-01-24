@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "listings_cards", "data-turbo-track": "reload" %>
 <div class="container">
 <h1>Listings</h1>
 <div class="input-group">
@@ -11,13 +12,26 @@
 </div>
 </div>
 <hr>
-<ul>
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">See details!</a>
-  </div>
+<div class="container mt-5 mb-3">
+    <div class="row">
+      <% Hcp.all.each do |hcp| %>
+    <div class="col-md-4">
+            <div class="card p-3 mb-2">
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
+                        <div class="ms-2 c-details">
+                            <h6 class="mb-0"><strong><%= hcp.speciality %></strong></h6> <span><strong><%= hcp.experience %></strong> Years of Experience</span>
+                        </div>
+                    </div>
+                    <div class="badge"><span><%= hcp.availability ? "Available" : "Not Available" %></span></div>
+                </div>
+                <div class="mt-3">
+                    <h3 class="heading"><%= hcp.user.first_name %> <%= hcp.user.last_name %></h3>
+                    <button type="button" class="btn btn-info customdtl">Details</button>
+                </div>
+            </div>
+        </div>
+  <% end %>
+    </div>
 </div>
-</ul>
