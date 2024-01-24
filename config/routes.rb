@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "listings/", to: "listings#index"
-  get "listings/:id", to: "listings#show"
+  resources :listings, only: [:show] do
+    post 'book_appointment', on: :member
+  end
   get "appointments/", to: "appointments#index"
   post "appointments/", to: "appointments#create"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
