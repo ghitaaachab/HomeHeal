@@ -18,16 +18,17 @@
 
 <div class="container">
 <div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),  rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Home git Services
-  </div>
+  <div class="card-category">
+  <%= image_tag "NoAvatar.png", alt: "Home Care Services" %>
+   Diagnostics at Home
+</div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),  rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),  rgba(0,0,0,0.3)), url(<%= asset_path("Therapy.jpg") %>)">
  Physical Therapy at Home:
   </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),   rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-  Diagnostics at Home
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),   rgba(0,0,0,0.3)), url(<%= asset_path("Nursing.jpg") %>)">
+Home Nursing Services
   </div>
 </div>
 </div>
