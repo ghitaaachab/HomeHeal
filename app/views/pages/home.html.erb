@@ -1,3 +1,59 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= user_signed_in? %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Page Title</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Include any additional meta tags, link tags, or script tags as needed -->
+</head>
+
+<body>
+
+  <!-- Your HTML content here -->
+
+<div class="banner">
+  <div class="container">
+    <!-- Add the video element here using the HTML <video> tag -->
+    <video width="100%" height="auto" autoplay muted loop style="object-fit: cover;">
+      <source src="<%= asset_path('healthcare.mp4') %>" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Position the text absolutely within the container -->
+    <div style="position: absolute; top: 60%; left: 60%; transform: translate(-60%, -60%); text-align: center; color: white;">
+      <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+      <p>Change your life and learn to code at one of our campuses around the world.</p>
+      <a class="btn btn-flat" href="#">Apply now</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" alt="Product Image" />
+    <div class="card-product-infos">
+      <h2>Product name</h2>
+      <p>Product description with <strong>relevant info</strong> only.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-copyright">
+      This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+    </div>
+  </div>
+
+</body>
+
+</html>
