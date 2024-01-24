@@ -1,1 +1,14 @@
-
+<div class="container mt-4">
+  <% @appointments.each do |appointment| %>
+    <div class="card mb-4">
+      <div class="card-header">
+        Scheduled for: <strong><%= appointment.date %></strong>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Appointment with HCP ID (To Replace with Name): <%= appointment.hcp_id %></h5>
+        <p class="card-text"><%= Hcp.find(appointment.hcp_id).speciality %></p>
+        <a href="#" class="btn <%= appointment.status == "Accepted" ? "btn-success" : "btn-danger text-white" %>"><%= appointment.status %></a>
+      </div>
+    </div>
+  <% end %>
+</div>

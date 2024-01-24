@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
 
@@ -11,11 +11,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <% if Hcp.where(user_id: current_user.id).first %>
+            <span class="nav-link">
+              <label class="switch">
+                <input type="checkbox" />
+                <div></div>
+              </label>
+            </span>
+          <% else %>
+            <span class="nav-link">I'm just a regular client</span>
+          <% end %>
           <li class="nav-item active">
-            <%= link_to "Appointments", "#", class: "nav-link" %>
+            <%= link_to "Appointments", appointments_path, class: "nav-link" %>
           </li>
           <li class="nav-item active">
-            <%= link_to "Profile", "#", class: "nav-link" %>
+            <%= link_to current_user.first_name ? current_user.first_name : "Profile", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
