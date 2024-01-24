@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "listings/", to: "listings#index"
   resources :listings, only: [:show] do
-    post 'book_appointment', on: :member
+    post 'appointments', on: :hcp
   end
   get "appointments/", to: "appointments#index"
   post "appointments/", to: "appointments#create"

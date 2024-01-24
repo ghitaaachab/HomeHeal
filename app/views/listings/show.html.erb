@@ -1,12 +1,12 @@
-<p><%= @listing.age %></p>
-<p><%= @listing.availability %></p>
-<p><%= @listing.price %></p>
+
 <!-- app/views/hcp/show.html.erb -->
 <h1><%= @listing.user.first_name %>'s Profile</h1>
+<p><%= @hcp.age %></p>
+<p>Specialty: <%= @hcp.speciality %></p>
+<p>Experience: <%= @hcp.experience %> years</p>
 
-<p>City: <%= @listing.city %></p>
-<p>Specialty: <%= @listing.specialty %></p>
-<p>Experience: <%= @listing.experience %> years</p>
+<p><%= @hcp.availability %></p>
+<p><%= @hcp.price %></p>
 
 <h2>Available Appointments</h2>
 <% if @appointments.any? %>
