@@ -14,10 +14,17 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    appointment_infos = {date: appointment_params.date, hcp_id: appointment_params.hcp_id, client_id: Client.where(user_id: current_user.id).id, status: "Pending"}
-    @appointment = Appointment.new(appointment_infos)
-    @appointment.save
-    redirect_to listings_path
+    client = Client.where(user_id: current_user.id).first
+    hcp = Hcp.find(params[:id])
+
+    appointment = Appointment.new(client_id: client.id, hcp_id: hcp.id, date: Date.today, status: "Pending")
+
+    if appointment.save
+      redirect_to appointments_path
+    else
+      flash[:alert] = "Failed to book the appointment."
+      raise
+    end
   end
 
   def accept

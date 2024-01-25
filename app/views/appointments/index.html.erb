@@ -12,8 +12,10 @@
               Appointment with Client: <strong><%= "#{appointment.client.user.first_name.capitalize} #{appointment.client.user.last_name.capitalize}" %></strong>
             </h5>
           <% if appointment.status == 'Pending' %>
-            <%= button_to 'Accept', accept_appointment_path(appointment), method: :put, class: 'btn btn-success' %>
-            <%= button_to 'Reject', reject_appointment_path(appointment), method: :put, class: 'btn btn-danger' %>
+            <div class="d-flex gap-3">
+              <%= button_to 'Accept', accept_appointment_path(appointment), method: :put, class: 'btn btn-success' %>
+              <%= button_to 'Reject', reject_appointment_path(appointment), method: :put, class: 'btn btn-danger text-white' %>
+            </div>
           <% else %>
             <a href="#" class="btn <%= appointment.status.capitalize == "Accepted" ? "btn-success" : "btn-danger text-white" %>">You've <%= appointment.status %> this appointment</a>
           <% end %>
@@ -24,7 +26,7 @@
           <% if appointment.status == "Accepted" %>
             <a href="#" class="btn btn-success"><%= appointment.status.capitalize %></a>
           <% elsif appointment.status == "Rejected" %>
-            <a href="#" class="btn btn-danger"><%= appointment.status.capitalize %></a>
+            <a href="#" class="btn btn-danger text-white"><%= appointment.status.capitalize %></a>
           <% else %>
             <a href="#" class="btn btn-info"><%= appointment.status.capitalize %></a>
           <% end %>

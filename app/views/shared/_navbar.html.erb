@@ -11,6 +11,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <% if !current_user.hcp %>
+            <li class="nav-item active">
+              <%= link_to "Listings", listings_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <li class="nav-item active">
             <%= link_to "Appointments", appointments_path, class: "nav-link" %>
           </li>
@@ -21,8 +26,6 @@
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
           </a>
-                        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
-
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
