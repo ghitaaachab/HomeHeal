@@ -8,12 +8,14 @@
               <div class="row align-items-center mb-3">
                  <div class="col-12" id="role-question">
                   <p class="form-label">Are you a healthcare provider?</p>
-                  <%= form_tag roles_path, method: :post do %>
-                  <button type="button" id="show-hcp-form" class="btn btn-info">Yes, Sign Up as an HCP</button>
-                  <button type="submit" id="not-hcp" name="role_choice" value="client" class="btn btn-info">
-                  <% end %>
-                    I'm a regular Client
-                  </button>
+                  <div class="d-flex gap-3">
+                    <button type="button" id="show-hcp-form" class="btn btn-info">Yes, Sign up as an HCP</button>
+                    <%= form_tag roles_path, method: :post do %>
+                    <button type="submit" id="not-hcp" name="role_choice" value="client" class="btn btn-info">
+                    <% end %>
+                      I'm a regular Client
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -33,16 +35,10 @@
                   <%= text_field_tag 'experience', nil, class: ['form-control', 'form-control-lg'], type: 'number', required: true  %>
                 </div>
               </div>
-              <div class="row align-items-center mb-3">
-                <div class="col-12">
-                  <%= label_tag 'age', 'Age:', class: 'form-label' %>
-                  <%= text_field_tag 'age', nil, class: ['form-control', 'form-control-lg'], type: 'number', required: true  %>
-                </div>
-              </div>
 
               <div class="row align-items-center mb-3">
                 <div class="col-12">
-                  <%= label_tag 'price', 'Price:', class: 'form-label' %>
+                  <%= label_tag 'price', 'Hourly Rate ($):', class: 'form-label' %>
                   <%= text_field_tag 'price', nil, class: ['form-control', 'form-control-lg'], type: 'number', required: true  %>
                 </div>
               </div>

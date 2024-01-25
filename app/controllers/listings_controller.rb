@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+  before_action :authenticate_client, only: [:index, :show, :book_appointment]
+
   def index
     @listings = Hcp.all
     if params[:query].present?
@@ -12,17 +14,23 @@ class ListingsController < ApplicationController
   end
 
   def book_appointment
-    client = Client.where({user_id: current_user.id})
+    client = Client.where(user_id: current_user.id).first
     hcp = Hcp.find(params[:id])
 
-    appointment = Appointment.new({client_id: client, hcp_id: hcp, date: Date.today, status: "Pending"})
+    appointment = Appointment.new(client_id: client.id, hcp_id: hcp.id, date: Date.today, status: "Pending")
 
     if appointment.save
       redirect_to appointments_path
     else
-      Rails.logger.debug(hcp.errors.full_messages)
       flash[:alert] = "Failed to book the appointment."
       raise
     end
+  end
+
+  private
+
+  def authenticate_client
+    hcp = Hcp.find_by(user_id: current_user.id)
+    redirect_to appointments_path, alert: "Only Clients have access to this page." if !hcp.nil?
   end
 end

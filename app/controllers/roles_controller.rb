@@ -8,11 +8,13 @@ class RolesController < ApplicationController
   def create
     if params[:role_choice] == 'hcp'
       register_hcp
+      redirect_to appointments_path
     elsif params[:role_choice] == 'client'
       register_client
+      redirect_to listings_path
     end
 
-    redirect_to listings_path
+
   end
 
   private
@@ -27,7 +29,7 @@ class RolesController < ApplicationController
 
   def register_hcp
     user = current_user
-    hcp = Hcp.new(user: user, speciality: params[:speciality], experience: params[:experience], age: params[:age], price: params[:price], biography: params[:biography])
+    hcp = Hcp.new(user: user, speciality: params[:speciality], experience: params[:experience], price: params[:price], biography: params[:biography])
 
     if hcp.save
       user.update(role: :hcp, hcp: hcp)
