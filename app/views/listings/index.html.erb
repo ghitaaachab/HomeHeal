@@ -1,10 +1,8 @@
 <%= stylesheet_link_tag "listings_cards", "data-turbo-track": "reload" %>
-<div class="container customsearch">
-<div class="form-outline" data-mdb-input-init>
-  <input type="search" id="form1" class="form-control" placeholder="Search Professional" aria-label="Search" />
+<div class="input-group customsearch">
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+  <button type="button" class="btn btn-outline-primary" data-mdb-ripple-init>Search Professional </button>
 </div>
-</div>
-
 <div class="container mt-5 mb-3">
     <div class="row">
       <% Hcp.all.each do |hcp| %>
@@ -21,7 +19,7 @@
                 </div>
                 <div class="mt-3">
                     <h3 class="heading"><%= hcp.user.first_name %> <%= hcp.user.last_name %></h3>
-                    <%= link_to "Details", listings_path(hcp), class: "btn btn-info customdtl" %>
+                    <%= link_to "Details", listing_path(hcp), class: "btn btn-info customdtl" %>
                 </div>
             </div>
         </div>
