@@ -1,0 +1,91 @@
+<section class=" my-5">
+  <div class="mask d-flex align-items-center h-100 ">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <div class="row align-items-center mb-3">
+                 <div class="col-12" id="role-question">
+                  <p class="form-label">Are you a healthcare provider?</p>
+                  <%= form_tag roles_path, method: :post do %>
+                  <button type="button" id="show-hcp-form" class="btn btn-info">Yes, Sign Up as an HCP</button>
+                  <button type="submit" id="not-hcp" name="role_choice" value="client" class="btn btn-info">
+                  <% end %>
+                    I'm a regular Client
+                  </button>
+                </div>
+              </div>
+
+              <div id="hcp-form" style="display: none;">
+
+  <%= form_tag roles_path, method: :post do %>
+
+              <div class="row align-items-center my-3">
+                <div class="col-12">
+                  <%= label_tag 'speciality', 'Speciality:', class: 'form-label' %>
+                  <%= select_tag 'speciality', options_for_select(['Nurse', 'Kinesitherapie', 'Thai massage', 'Doctor', 'Psychiatre'], class: 'form-select'), required: true  %>
+                </div>
+              </div>
+              <div class="row align-items-center mb-3">
+                <div class="col-12">
+                  <%= label_tag 'experience', 'Years of Experience:', class: 'form-label' %>
+                  <%= text_field_tag 'experience', nil, class: ['form-control', 'form-control-lg'], type: 'number', required: true  %>
+                </div>
+              </div>
+              <div class="row align-items-center mb-3">
+                <div class="col-12">
+                  <%= label_tag 'age', 'Age:', class: 'form-label' %>
+                  <%= text_field_tag 'age', nil, class: ['form-control', 'form-control-lg'], type: 'number', required: true  %>
+                </div>
+              </div>
+
+              <div class="row align-items-center mb-3">
+                <div class="col-12">
+                  <%= label_tag 'price', 'Price:', class: 'form-label' %>
+                  <%= text_field_tag 'price', nil, class: ['form-control', 'form-control-lg'], type: 'number', required: true  %>
+                </div>
+              </div>
+
+              <div class="row align-items-center mb-3">
+                <div class="col-12">
+                  <%= label_tag 'biography', 'Biography:', class: 'form-label' %>
+                  <%= text_area_tag 'biography', nil, class: ['form-control', 'form-control-lg'], required: true  %>
+                </div>
+              </div>
+
+               <div class="col-12">
+                  <button type="submit" name="role_choice" value="hcp" class="btn btn-info" data-toggle="modal" data-target="#hcpsignup">
+                    Sign Up as an HCP
+                  </button>
+                </div>
+    </div>
+
+         <% end %>
+
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const roleQuestion = document.querySelector("#role-question");
+    const showHcpFormButton = document.querySelector("#show-hcp-form");
+    const notHcpButton = document.querySelector("#not-hcp");
+    const hcpForm = document.querySelector("#hcp-form");
+
+    showHcpFormButton.addEventListener("click", function() {
+      roleQuestion.style.display = "none";
+      notHcpButton.style.display = "none";
+      hcpForm.style.display = "block";
+    });
+
+    notHcpButton.addEventListener("click", function() {
+      roleQuestion.style.display = "none";
+      showHcpFormButton.style.display = "none";
+    });
+  });
+</script>

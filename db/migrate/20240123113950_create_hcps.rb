@@ -5,8 +5,8 @@ class CreateHcps < ActiveRecord::Migration[7.1]
       t.string :speciality
       t.integer :experience
       t.integer :age
-      t.boolean :availability
       t.integer :price
+      t.string :biography
       t.timestamps
     end
   end
