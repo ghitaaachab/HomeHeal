@@ -10,10 +10,10 @@
 
 Client.destroy_all
 Hcp.destroy_all
-Appointement.destroy_all
+Appointment.destroy_all
 
 10.times do |i|
   Client.create!({user_id: 1})
   Hcp.create!({user_id: 1, speciality: ['Nurse', 'Kinesitherapie', 'Thai massage', 'Doctor', 'Psychiatre'].sample, experience: rand(1..40), age: rand(21..60), availability: true, price: rand(100..1000) })
-  Appointement.create!({client_id: i + 1, hcp_id: i + 1, date: Faker::Date.between(from: 30.days.ago, to: Date.today), status: ['Pending', 'Accepted', 'Rejected'].sample})
+  Appointment.create!({client_id: i + 1, hcp_id: i + 1, date: Faker::Date.between(from: 30.days.ago, to: Date.today), status: ['Pending', 'Accepted', 'Rejected'].sample})
 end

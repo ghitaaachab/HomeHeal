@@ -1,12 +1,11 @@
-<p><%= @listing.age %></p>
-<p><%= @listing.availability %></p>
-<p><%= @listing.price %></p>
-<!-- app/views/hcp/show.html.erb -->
-<h1><%= @listing.user.first_name %>'s Profile</h1>
 
-<p>City: <%= @listing.city %></p>
-<p>Specialty: <%= @listing.specialty %></p>
-<p>Experience: <%= @listing.experience %> years</p>
+<!-- app/views/hcp/show.html.erb -->
+
+<h1><%= @hcp.first_name %>'s Profile</h1>
+
+<p>City: <%= @hcp.city %></p>
+<p>Specialty: <%= @hcp.specialty %></p>
+<p>Experience: <%= @hcp.experience %> years</p>
 
 <h2>Available Appointments</h2>
 <% if @appointments.any? %>
@@ -22,7 +21,7 @@
 <h2>Book Appointment</h2>
 <%= form_tag(appointment_listings_path(@listing), method: :post) do %>
   <%= hidden_field_tag :user_id, current_user.id %>
-  <%= hidden_field_tag :hcp_id, @listing.id %>
+  <%= hidden_field_tag :hcp_id, @hcp.id %>
 
   <label for="selected_date">Select Date:</label>
   <%= date_field_tag :selected_date, nil, min: Date.today %>
