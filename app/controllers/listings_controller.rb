@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing = Hcp.find(params[:id])
+    @hcp = Hcp.find(params[:id])
     @appointments = @hcp.appointments
   end
 
