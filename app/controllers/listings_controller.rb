@@ -6,6 +6,7 @@ class ListingsController < ApplicationController
     if params[:query].present?
       @listings = Hcp.search_by_speciality(params[:query])
     end
+    @listing = Hcp.new
   end
 
   def show
