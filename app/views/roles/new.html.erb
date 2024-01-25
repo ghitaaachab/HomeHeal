@@ -53,7 +53,7 @@
                   <%= text_area_tag 'biography', nil, class: ['form-control', 'form-control-lg'], required: true  %>
                 </div>
               </div>
-
+               <%= f.input :photo, as: :file %>
                <div class="col-12">
                   <button type="submit" name="role_choice" value="hcp" class="btn btn-info" data-toggle="modal" data-target="#hcpsignup">
                     Sign Up as an HCP
