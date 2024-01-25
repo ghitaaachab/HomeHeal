@@ -1,5 +1,11 @@
-<h2>Log in</h2>
-
+<section class="vh-100 ">
+  <div class="mask d-flex align-items-center h-100 ">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center mt-5 h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+            <h2 class=" text-center mb-5">Log into Home Heal</h2>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
@@ -12,9 +18,15 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <div class="px-5 py-4">
+                <%= f.button :submit, "Login", class: ["col-12", "btn", "btn-info", "btn-lg", "btn-block"] %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+  <div class="text-center"><%= render "devise/shared/links" %></div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

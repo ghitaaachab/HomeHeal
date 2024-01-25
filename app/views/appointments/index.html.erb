@@ -1,14 +1,38 @@
-<div class="container mt-4">
-  <% @appointments.each do |appointment| %>
-    <div class="card mb-4">
-      <div class="card-header">
-        Scheduled for: <strong><%= appointment.date %></strong>
+<% if @appointments.present? %>
+  <div class="container mt-4">
+    <% @appointments.each do |appointment| %>
+      <div class="card mb-4">
+        <div class="card-header">
+          Scheduled for: <strong><%= appointment.date %></strong>
+        </div>
+        <div class="card-body">
+          <!-- <p class="card-text"><%= Hcp.find(appointment.hcp_id).speciality %></p> -->
+          <% if @user_role == 'hcp' %>
+            <h5 class="card-title mb-3">
+              Appointment with Client: <strong><%= "#{appointment.client.user.first_name.capitalize} #{appointment.client.user.last_name.capitalize}" %></strong>
+            </h5>
+          <% if appointment.status == 'Pending' %>
+            <%= button_to 'Accept', accept_appointment_path(appointment), method: :put, class: 'btn btn-success' %>
+            <%= button_to 'Reject', reject_appointment_path(appointment), method: :put, class: 'btn btn-danger' %>
+          <% else %>
+            <a href="#" class="btn <%= appointment.status.capitalize == "Accepted" ? "btn-success" : "btn-danger text-white" %>">You've <%= appointment.status %> this appointment</a>
+          <% end %>
+        <% else %>
+          <h5 class="card-title mb-3">
+              Appointment with HCP (<%= appointment.hcp.speciality %>): <%= "#{appointment.hcp.user.first_name.capitalize} #{appointment.hcp.user.last_name.capitalize}" %>
+            </h5>
+          <% if appointment.status == "Accepted" %>
+            <a href="#" class="btn btn-success"><%= appointment.status.capitalize %></a>
+          <% elsif appointment.status == "Rejected" %>
+            <a href="#" class="btn btn-danger"><%= appointment.status.capitalize %></a>
+          <% else %>
+            <a href="#" class="btn btn-info"><%= appointment.status.capitalize %></a>
+          <% end %>
+        <% end %>
+        </div>
       </div>
-      <div class="card-body">
-        <h5 class="card-title">Appointment with HCP ID (To Replace with Name): <%= appointment.hcp_id %></h5>
-        <p class="card-text"><%= Hcp.find(appointment.hcp_id).speciality %></p>
-        <a href="#" class="btn <%= appointment.status == "Accepted" ? "btn-success" : "btn-danger text-white" %>"><%= appointment.status %></a>
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+  <% else %>
+    <h2 class="mt-5 text-center">You have no appointments.</h2>
+<% end %>

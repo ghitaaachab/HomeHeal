@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-4">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "logo.png" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,16 +11,6 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <% if Hcp.where(user_id: current_user.id).first %>
-            <span class="nav-link">
-              <label class="switch">
-                <input type="checkbox" />
-                <div></div>
-              </label>
-            </span>
-          <% else %>
-            <span class="nav-link">I'm just a regular client</span>
-          <% end %>
           <li class="nav-item active">
             <%= link_to "Appointments", appointments_path, class: "nav-link" %>
           </li>
@@ -40,8 +30,11 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <li class="nav-item mx-4">
+            <%= link_to "Login", new_user_session_path,  class: ["btn", "btn-info"] %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to "Sign up", new_user_registration_path,  class: ["btn", "btn-info"] %>
           </li>
         <% end %>
       </ul>
