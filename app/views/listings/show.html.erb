@@ -1,30 +1,41 @@
+<%= stylesheet_link_tag "hcppage", "data-turbo-track": "reload" %>
+<div class="container my-5">
+  <div class="d-flex border p-3 gap-4" >
+    <div>
+      <img src="https://source.unsplash.com/random/400x400" alt="" style="border-radius:20px;">
+    </div>
+    <div>
+      <div class="d-flex flex-column">
+        <div class="mb-4">
+          <p class="hcpspeciality"><%= @hcp.speciality %></p>
+          <div class="hcpname"><%= @hcp.user.first_name %> <%= @hcp.user.last_name %></div>
+          <div class="hcpdescription">
+            <p><%= @hcp.biography  %></p>
+          </div>
+        </div>
+        <div class="hcpinfos d-flex justify-content-between">
+          <p><strong><%= @hcp.experience %></strong> years of experience</p>
+        </div>
+        <div>
+          <%= form_tag book_appointment_listing_path(@hcp), method: :post, id: 'book-appointment-form', style: 'display: none;' do %>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <% end %>
+          <div>
+            <%= link_to 'Book Now', '#', id: 'book-appointment-btn', class: 'btn btn-info' %>
+          </div>
 
-<!-- app/views/hcp/show.html.erb -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const bookAppointmentBtn = document.getElementById("book-appointment-btn");
+    const bookAppointmentForm = document.getElementById("book-appointment-form");
 
-<h1><%= @hcp.first_name %>'s Profile</h1>
-
-<p>City: <%= @hcp.city %></p>
-<p>Specialty: <%= @hcp.specialty %></p>
-<p>Experience: <%= @hcp.experience %> years</p>
-
-<h2>Available Appointments</h2>
-<% if @appointments.any? %>
-  <ul>
-    <% @appointments.each do |appointment| %>
-      <li><%= appointment.date %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No appointments available.</p>
-<% end %>
-
-<h2>Book Appointment</h2>
-<%= form_tag(appointment_listings_path(@listing), method: :post) do %>
-  <%= hidden_field_tag :user_id, current_user.id %>
-  <%= hidden_field_tag :hcp_id, @hcp.id %>
-
-  <label for="selected_date">Select Date:</label>
-  <%= date_field_tag :selected_date, nil, min: Date.today %>
-
-  <%= submit_tag 'Book Appointment' %>
-<% end %>
+    bookAppointmentBtn.addEventListener("click", function() {
+      bookAppointmentForm.submit();
+    });
+  });
+</script>

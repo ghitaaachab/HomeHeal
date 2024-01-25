@@ -5,21 +5,20 @@ class ListingsController < ApplicationController
 
   def show
     @hcp = Hcp.find(params[:id])
-    @appointments = @hcp.appointments
   end
-
+  
   def book_appointment
-    user_id = params[:user_id]
-    hcp_id = params[:hcp_id]
-    selected_date = params[:selected_date]
+    client = Client.where({user_id: current_user.id})
+    hcp = Hcp.find(params[:id])
 
-    # Perform the booking logic here, e.g., create a new appointment
-    Appointment.create(user_id: user_id, hcp_id: hcp_id, date: selected_date)
+    appointment = Appointment.new({client_id: client, hcp_id: hcp, date: Date.today, status: "Pending"})
 
-    redirect_to hcp_path(hcp_id), notice: 'Appointment booked successfully.'
-  end
-
-  def search
-    @listings = Listing.where("name ILIKE ?", "%#{params[:query]}%")
+    if appointment.save
+      redirect_to appointments_path
+    else
+      Rails.logger.debug(hcp.errors.full_messages)
+      flash[:alert] = "Failed to book the appointment."
+      raise
+    end
   end
 end
