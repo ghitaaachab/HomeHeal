@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
   def show
     @hcp = Hcp.find(params[:id])
   end
-
+  
   def book_appointment
     client = Client.where({user_id: current_user.id})
     hcp = Hcp.find(params[:id])

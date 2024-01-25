@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   get "listings/", to: "listings#index"
+
   resources :listings, only: [:show] do
-    post 'book_appointment', on: :member
+    post 'appointments', on: :member, to: 'listings#book_appointment'
   end
 
   resources :appointments, only: [:index, :create, :update] do
