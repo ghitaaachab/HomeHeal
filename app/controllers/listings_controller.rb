@@ -7,4 +7,8 @@ class ListingsController < ApplicationController
     @listing = Hcp.find(params[:id])
     @appointments = @listing.appointments
   end
+
+  def search
+    @listings = Listing.where("name ILIKE ?", "%#{params[:query]}%")
+  end
 end
