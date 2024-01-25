@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "listings/", to: "listings#index"
+
   resources :listings, only: [:show] do
     post 'appointments', on: :member, to: 'listings#book_appointment'
   end

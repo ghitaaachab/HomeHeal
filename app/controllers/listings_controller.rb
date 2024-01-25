@@ -18,4 +18,8 @@ class ListingsController < ApplicationController
 
     redirect_to hcp_path(hcp_id), notice: 'Appointment booked successfully.'
   end
+
+  def search
+    @listings = Listing.where("name ILIKE ?", "%#{params[:query]}%")
+  end
 end

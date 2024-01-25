@@ -19,7 +19,7 @@
 <% end %>
 
 <h2>Book Appointment</h2>
-<%= form_tag(book_appointment_hcp_path(@hcp), method: :post) do %>
+<%= form_tag(appointment_listings_path(@listing), method: :post) do %>
   <%= hidden_field_tag :user_id, current_user.id %>
   <%= hidden_field_tag :hcp_id, @hcp.id %>
 
