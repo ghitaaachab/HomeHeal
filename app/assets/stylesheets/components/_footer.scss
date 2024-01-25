@@ -9,10 +9,7 @@ footer {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-}
-
-.footer-logo img {
-  max-width: 100px;
+  text-align: center;
 }
 
 .footer-info,
@@ -36,6 +33,7 @@ footer {
 
 .footer-links li {
   margin-bottom: 5px;
+
 }
 
 .footer-links a {
@@ -47,6 +45,7 @@ footer {
   list-style: none;
   padding: 0;
   display: flex;
+  justify-content: center; // Center the <li> elements
 }
 
 .footer-social li {

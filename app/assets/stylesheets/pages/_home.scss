@@ -1,0 +1,289 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+/* Specific CSS for your home-page */
+.banner {
+  position: relative;
+  width: 100%;
+  /* Full viewport width */
+  height: 100%;
+  /* Full viewport height */
+  overflow: hidden;
+  margin: 0;
+}
+
+.banner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.banner h1 {
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 30px;
+  opacity: 0.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  width: calc(33.333% - 20px);
+  /* Adjusted width and added spacing between cards */
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 0;
+  padding: 0 10px 10px 10px;
+}
+
+/* Media Queries */
+@media (max-width: 575px) {
+  .cards {
+    flex-direction: column;
+    padding: 40px;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+.card-category {
+  padding: 60px;
+  display: flex;
+}
+
+.btn-gradient {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: linear-gradient(#fbd516, #fbd516);
+  transition: background 0.3s ease;
+  border: 1px solid #fbd516;
+  font-size: 18px;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(#ffa914, #ffa914);
+  color: white;
+  font-size: 25px;
+}
+
+.serve {
+  text-align: center;
+  padding: 20px;
+}
+
+.serve p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+  font-family: 'Your Chosen Font', sans-serif;
+  /* Use the chosen font */
+}
+
+.serve h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+  font-family: 'Your Chosen Font', sans-serif;
+  /* Use the chosen font */
+}
+
+.serve h3 {
+  font-size: 24px;
+  color: #777;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-family: 'Your Chosen Font', sans-serif;
+  /* Use the chosen font */
+}
+
+/*.card-product {
+  overflow: hidden;
+  height: 600px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-product img {
+  height: 100%;
+  width: 500px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 2em;
+
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 1em;
+
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 2em;
+
+}
+
+
+@media (max-width: 768px) {
+  .card-product h2 {
+    font-size: 1.5em;
+
+  }
+
+  .card-product p {
+    font-size: 1em;
+  }
+
+  .card-product .card-product-infos {
+    padding: 1em;
+
+  }
+}
+*/
+.card-product {
+  overflow: hidden;
+  height: 600px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-product img {
+  height: 100%;
+  width: 500px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.card-product p {
+  font-size: 1em;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.card-product ol {
+  list-style-type: decimal;
+  padding-left: 20px;
+}
+
+.card-product li {
+  font-size: 1em;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.card-product .card-product-infos {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card-product {
+    flex-direction: column;
+  }
+
+  .card-product h2 {
+    font-size: 1.5em;
+  }
+
+  .card-product p,
+  .card-product li {
+    font-size: 0.9em;
+  }
+
+  .card-product .card-product-infos {
+    padding: 10px;
+  }
+}
