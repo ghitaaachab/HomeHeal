@@ -1,7 +1,6 @@
 <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
 
 <div class="banner">
-  <%= stylesheet_link_tag "home", "data-turbo-track": "reload" %>
   <!-- Add the video element here using the HTML <video> tag -->
   <video width="100%" height="auto" autoplay muted loop style="object-fit: cover;">
     <source src="<%= asset_path("healthcare.mp4") %>" type="video/mp4">
@@ -10,39 +9,45 @@
 
   <!-- Position the text absolutely within the container -->
   <div style="position: absolute; top: 60%; left: 60%; transform: translate(-60%, -60%); text-align: center; color: white;">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-gradient" href="#">Book now</a>
+    <h1>Bringing Loving Care <strong>To</strong> Healthcare</h1>
+    <p>Your personalized solution for hassle-free healthcare bookings at the comfort of your home.</p>
+    <a class="btn btn-gradient" href="#">Sign Up</a>
   </div>
 </div>
-
-
 
 <div class="container">
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),  rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Home Nursing Services
+  <div class="serve">
+    <p>Our Services</p>
+    <h1>Healthcare Solutions</h1>
+    <h3>Comprehensive Services for Your Health and Well-being, Tailored to You</h3>
   </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),  rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
- Physical Therapy at Home:
-  </div>
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path("Nursing.jpg") %>)">
+      Nursing Services
+    </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3),   rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-  Diagnostics at Home
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path("Therapy.jpg") %>)">
+      Physical Therapy
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path("docc.jpg") %>)">
+      Diagnostics at Home
+    </div>
   </div>
 </div>
-</div>
 
-<div class="footer">
-  <div class="footer-links">
-    <a href="#"><i class="fab fa-github"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="#"><i class="fab fa-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin"></i></a>
-  </div>
-  <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+<div class="card-product">
+  <img src="<%= asset_path("hlc.jpg") %>"/>
+  <div class="card-product-infos">
+    <h2>Why Choose Us?</h2>
+    <p>At HomeHeal, we strive to provide exceptional healthcare services tailored to your needs. Here's why you should choose us:</p>
+    <ol>
+      <li><strong>Expert Care:</strong> Our team consists of experienced and qualified healthcare professionals dedicated to your well-being.</li>
+      <li><strong>Personalized Approach:</strong> We understand that everyone's health journey is unique. Our services are customized to meet your individual requirements.</li>
+      <li><strong>Convenience:</strong> Enjoy the convenience of receiving top-notch healthcare services in the comfort of your home.</li>
+      <li><strong>Comprehensive Services:</strong> From diagnostics to therapy, we offer a wide range of comprehensive healthcare solutions to address your health concerns.</li>
+      <li><strong>Technology-Driven:</strong> We leverage cutting-edge technology to ensure efficient and effective healthcare delivery.</li>
+    </ol>
   </div>
 </div>
