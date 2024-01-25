@@ -1,0 +1,26 @@
+.container {
+  margin-top: 20px;
+  /* Adjust the margin based on your design */
+}
+
+.card {
+  border: 1px solid #ddd;
+  /* Add a border to the cards */
+  border-radius: 8px;
+  /* Optional: Add border-radius for a rounded look */
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  /* Optional: Add a background color to the card header */
+  padding: 10px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.btn {
+  margin-right: 10px;
+  /* Optional: Add margin between buttons */
+}
