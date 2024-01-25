@@ -6,4 +6,7 @@ class Hcp < ApplicationRecord
   validates :experience, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :age, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
+  include PgSearch::Model
+  pg_search_scope :search_by_speciality, against: [:speciality], using: { tsearch: { prefix: true } }
 end

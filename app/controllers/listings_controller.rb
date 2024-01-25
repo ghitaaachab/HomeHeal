@@ -1,12 +1,15 @@
 class ListingsController < ApplicationController
   def index
     @listings = Hcp.all
+    if params[:query].present?
+      @listings = Hcp.search_by_speciality(params[:query])
+    end
   end
 
   def show
     @hcp = Hcp.find(params[:id])
   end
-  
+ 
   def book_appointment
     client = Client.where({user_id: current_user.id})
     hcp = Hcp.find(params[:id])

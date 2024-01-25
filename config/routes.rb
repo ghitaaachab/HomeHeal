@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   get "listings/", to: "listings#index"
 
-  resources :listings, only: [:show] do
-    post 'appointments', on: :member, to: 'listings#book_appointment'
+  resources :listings, only: [:index, :show] do
+    post 'book_appointment', on: :member
   end
 
   resources :appointments, only: [:index, :create, :update] do
