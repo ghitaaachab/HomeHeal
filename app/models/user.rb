@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one :client
   has_one :hcp
+  has_one_attached :photo
   attribute :role, :integer, default: 0
   enum role: [:client, :hcp]
 

@@ -19,7 +19,7 @@
             <div class="card p-3 mb-2">
                 <div class="d-flex justify-content-between">
                     <div class="d-flex flex-row align-items-center">
-                        <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
+                        <%= cl_image_tag @listing.photo.key, height: 300, width: 400, crop: :fill, class: "avatar-img", alt: "Avatar" %>
                         <div class="ms-2 c-details">
                             <h6 class="mb-0"><strong><%= hcp.user.first_name %></strong></h6> <span><strong><%= hcp.experience %></strong> Years of Experience</span>
                         </div>
