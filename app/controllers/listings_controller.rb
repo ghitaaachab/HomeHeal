@@ -20,7 +20,7 @@ class ListingsController < ApplicationController
     appointment = Appointment.new(client_id: client.id, hcp_id: hcp.id, date: Date.today, status: "Pending")
 
     if appointment.save
-      redirect_to appointments_path
+      redirect_to appointments_path 
     else
       flash[:alert] = "Failed to book the appointment."
       raise
