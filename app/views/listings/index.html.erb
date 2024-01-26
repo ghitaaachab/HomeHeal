@@ -22,7 +22,7 @@
         <% if hcp.user.photo.key.blank? %>
           <%= image_tag "logo.png", height: 70, width: 70, class: "avatar" %>
         <% else %>
-          <%= cl_image_tag hcp.user.photo.key, height: 70, width: 70, crop: :fill, class: "avatar"%>
+          <%= cl_image_tag hcp.user.photo.key, height: 70, width: 70, class: "avatar"%>
         <% end %>
       </div>
 <div class="card p-3 mb-2">
