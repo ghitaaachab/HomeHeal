@@ -18,14 +18,16 @@
     <div class="col-md-4">
             <div class="card p-3 mb-2">
                 <div class="d-flex justify-content-between">
-           <div class="d-flex flex-column"> <div class="flex-row align-items-center"> <div class="avatar-container">
-        <% if hcp.user.photo.key.blank? %>
-          <%= image_tag "logo.png", height: 70, width: 70, class: "avatar" %>
-        <% else %>
-          <%= cl_image_tag hcp.user.photo.key, height: 70, width: 70, class: "avatar"%>
-        <% end %>
-      </div>
-<div class="card p-3 mb-2">
+           <div class="d-flex flex-column">
+           <div class="flex-row align-items-center">
+            <div class="avatar-container">
+              <% if hcp.user.photo.key.blank? %>
+                <%= image_tag "logo.png", height: 70, width: 70, class: "avatar" %>
+              <% else %>
+                <%= cl_image_tag hcp.user.photo.key, height: 70, width: 70, style: "object-fit: cover; border-radius: 50%;"%>
+              <% end %>
+            </div>
+                <div class="card p-3 mb-2">
                     <div class="d-flex flex-row align-items-center">
                         <div class="ms-2 c-details">
                             <h6 class="mb-0"><strong><%= hcp.user.first_name %> - <%= hcp.speciality %></strong></h6>
