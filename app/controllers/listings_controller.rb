@@ -23,7 +23,6 @@ class ListingsController < ApplicationController
     redirect_to appointments_path
   else
     flash[:alert] = "Failed to book the appointment."
-    raise
   end
 end
 

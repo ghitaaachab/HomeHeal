@@ -2,7 +2,7 @@
 <div class="container my-5">
   <div class="d-flex border p-3 gap-4" >
     <div>
-      <img src="https://source.unsplash.com/random/400x400" alt="" style="border-radius:20px;">
+      <%= cl_image_tag @hcp.user.photo.key, height: 450, width: 450%>
     </div>
     <div>
       <div class="d-flex flex-column">

@@ -1,6 +1,7 @@
 class Hcp < ApplicationRecord
   belongs_to :user
   has_many :appointments
+  has_one_attached :photo
 
   validates :speciality, presence: true
   validates :experience, presence: true, numericality: { only_integer: true, greater_than: 0 }

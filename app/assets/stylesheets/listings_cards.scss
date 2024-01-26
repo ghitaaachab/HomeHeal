@@ -60,3 +60,16 @@ body {
 .customsearch {
   margin-top: 20px;
 }
+
+.flex-row {
+  display: flex; /* Enable flexbox for the row */
+}
+
+.align-items-center {
+  align-items: center; /* Vertically align elements within the row */
+}
+
+.avatar-container {
+  margin-left: 10px; /* Add spacing between avatar and biography */
+  margin-right: 2px; /* Add spacing between avatar and biography */
+}
