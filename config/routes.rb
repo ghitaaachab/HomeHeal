@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :listings, only: [:index, :show] do
     post 'book_appointment', on: :member
+    get 'disabled_dates', on: :member
   end
 
   resources :appointments, only: [:index, :create, :update] do

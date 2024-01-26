@@ -26,6 +26,12 @@ class ListingsController < ApplicationController
     end
   end
 
+  def disabled_dates
+    hcp = Hcp.find(params[:id])
+    appointments = hcp.appointments.pluck(:date)
+    render json: { disabledDates: appointments }
+  end
+
   private
 
   def authenticate_client
