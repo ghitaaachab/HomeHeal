@@ -16,15 +16,22 @@
         <div class="hcpinfos d-flex justify-content-between">
           <p><strong><%= @hcp.experience %></strong> years of experience</p>
         </div>
-        <div>
+        <div data-hcp-id="<%= @hcp.id %>">
           <%= simple_form_for(Appointment.new, url: book_appointment_listing_path(@hcp), method: :post) do |f| %>
-            <div class="" >
+            <div class="">
               <%= f.input :date,
                 as: :string,
-                input_html: { data: { controller: "datepicker" } } %>
+                input_html: {
+                  data: {
+                    controller: "datepicker",
+                    disabled_dates_url: disabled_dates_listing_path(@hcp)
+                  }
+                }
+              %>
               <%= f.button :submit, 'Book Now', class: 'btn btn-info col-12 rounded' %>
             </div>
           <% end %>
+
         </div>
       </div>
     </div>

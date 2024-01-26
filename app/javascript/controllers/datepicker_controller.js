@@ -1,9 +1,20 @@
-import { Controller } from "@hotwired/stimulus"
-import flatpickr from "flatpickr"
+// app/javascript/controllers/datepicker_controller.js
 
-// Connects to data-controller="datepicker"
+import { Controller } from "@hotwired/stimulus"
+import flatpickr from "flatpickr";
+
 export default class extends Controller {
   connect() {
-    flatpickr(this.element);
+    const disabledDatesUrl = this.data.get("disabledDatesUrl");
+
+    flatpickr(this.element, {
+      disable: [
+        function(date) {
+          // Check if the date is in the array of disabled dates
+          return window.disabledDates && window.disabledDates.includes(date.toISOString().split('T')[0]);
+        }
+      ],
+      minDate: "today",
+    });
   }
 }
