@@ -2,7 +2,7 @@
 <div class="container my-5">
   <div class="d-flex border p-3 gap-4" >
     <div>
-      <%= cl_image_tag @hcp.user.photo.key, height: 450, width: 450%>
+      <%# <%= cl_image_tag @hcp.user.photo.key, height: 450, width: 450%> %>
     </div>
     <div>
       <div class="d-flex flex-column">
@@ -18,9 +18,9 @@
         </div>
         <div>
           <%= simple_form_for(Appointment.new, url: book_appointment_listing_path(@hcp), method: :post) do |f| %>
-            <div class="">
+            <div class="" data-controller="hello">
               <%= f.input :date,
-                as: :date,
+                as: :string,
                 input_html: { data: { controller: "datepicker" } } %>
               <%= f.button :submit, 'Book Now', class: 'btn btn-info col-12 rounded' %>
             </div>
