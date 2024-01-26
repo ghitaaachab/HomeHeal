@@ -14,18 +14,18 @@ class ListingsController < ApplicationController
   end
 
   def book_appointment
-    client = Client.where(user_id: current_user.id).first
-    hcp = Hcp.find(params[:id])
+  client = Client.find_by(user_id: current_user.id)
+  hcp = Hcp.find(params[:id])
 
-    appointment = Appointment.new(client_id: client.id, hcp_id: hcp.id, date: Date.today, status: "Pending")
+  appointment = Appointment.new(client_id: client.id, hcp_id: hcp.id, date: Date.today, status: "Pending")
 
-    if appointment.save
-      redirect_to appointments_path
-    else
-      flash[:alert] = "Failed to book the appointment."
-      raise
-    end
+  if appointment.save
+    redirect_to appointments_path
+  else
+    flash[:alert] = "Failed to book the appointment."
+    raise
   end
+end
 
   private
 

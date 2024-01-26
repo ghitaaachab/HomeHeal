@@ -2,8 +2,19 @@
   <div class="container mt-4">
     <% @appointments.each do |appointment| %>
       <div class="card mb-4">
-        <div class="card-header">
-          Scheduled for: <strong><%= appointment.date %></strong>
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <div>Scheduled for: <strong><%= appointment.date %></strong></div>
+          <div>
+            <% if @user_role != 'hcp' %>
+                <% if appointment.status == "Accepted" %>
+                  <div class="bg-success px-3 py-1 rounded"><%= appointment.status.capitalize %></div>
+                <% elsif appointment.status == "Rejected" %>
+                  <div class="bg-danger px-3 py-1 rounded text-white  "><%= appointment.status.capitalize %></div>
+                <% else %>
+                  <div class="bg-info px-3 py-1 rounded"><%= appointment.status.capitalize %></div>
+                <% end %>
+            <% end %>
+          </div>
         </div>
         <div class="card-body">
           <!-- <p class="card-text"><%= Hcp.find(appointment.hcp_id).speciality %></p> -->
@@ -23,13 +34,6 @@
           <h5 class="card-title mb-3">
               Appointment with HCP (<%= appointment.hcp.speciality %>): <%= "#{appointment.hcp.user.first_name.capitalize} #{appointment.hcp.user.last_name.capitalize}" %>
             </h5>
-          <% if appointment.status == "Accepted" %>
-            <a href="#" class="btn btn-success"><%= appointment.status.capitalize %></a>
-          <% elsif appointment.status == "Rejected" %>
-            <a href="#" class="btn btn-danger text-white"><%= appointment.status.capitalize %></a>
-          <% else %>
-            <a href="#" class="btn btn-info"><%= appointment.status.capitalize %></a>
-          <% end %>
         <% end %>
         </div>
       </div>

@@ -17,34 +17,16 @@
           <p><strong><%= @hcp.experience %></strong> years of experience</p>
         </div>
         <div>
-          <%= form_tag book_appointment_listing_path(@hcp), method: :post, id: 'book-appointment-form', style: 'display: none;' do %>
-            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <%= simple_form_for(Appointment.new, url: book_appointment_listing_path(@hcp), method: :post) do |f| %>
+            <div class="">
+              <%= f.input :date,
+                as: :date,
+                input_html: { data: { controller: "datepicker" } } %>
+              <%= f.button :submit, 'Book Now', class: 'btn btn-info col-12 rounded' %>
+            </div>
           <% end %>
-          <div class="mb-3">
-            <%= label_tag 'appointment_date', 'Select Appointment Date:', class: 'form-label' %>
-            <select name="appointment_date" class="form-select">
-              <% 7.times do |n| %>
-                <% date = Date.new(2024, 1, 25) + n.days %>
-                <option value="<%= date %>"><%= date.strftime('%A, %B %d, %Y') %></option>
-              <% end %>
-            </select>
-          </div>
-          <div>
-            <%= link_to 'Book Now', '#', id: 'book-appointment-btn', class: 'btn btn-info' %>
-          </div>
-
         </div>
       </div>
     </div>
   </div>
 </div>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const bookAppointmentBtn = document.getElementById("book-appointment-btn");
-    const bookAppointmentForm = document.getElementById("book-appointment-form");
-
-    bookAppointmentBtn.addEventListener("click", function() {
-      bookAppointmentForm.submit();
-    });
-  });
-</script>
