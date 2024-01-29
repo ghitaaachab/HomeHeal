@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <% if !current_user.hcp %>
+          <% if current_user.hcp.blank? %>
             <li class="nav-item active">
               <%= link_to "Listings", listings_path, class: "nav-link" %>
             </li>
@@ -24,10 +24,10 @@
           </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 <% if @current_user.photo.key.blank? %>
+                 <% if current_user.photo.key.blank? %>
                   <%= image_tag "logo.png", height: 40, width: 40,  class: "avatar", alt: "dropdown menu" %>
                 <% else %>
-                  <%= cl_image_tag @current_user.photo.key, height: 40, width: 40, crop: :fill,  class: "avatar", alt: "dropdown menu" %>
+                  <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill,  class: "avatar", alt: "dropdown menu" %>
                 <% end %>
                 </a>
 </div>
